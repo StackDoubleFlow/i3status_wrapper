@@ -32,6 +32,8 @@ fn main() -> Result<()> {
         let headset_volume = headset_volume()?;
         let headset_volume = if headset_volume == "-1" {
             "Charging".to_string()
+        } else if headset_volume.is_empty() {
+            "Disconnected".to_string()
         } else {
             format!("{}%", headset_volume)
         };
